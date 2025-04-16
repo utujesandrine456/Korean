@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food</title>
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+</head>
+<style>
+   *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Work sans', sans-serif;
+    
+}
+nav {
+    background-color: rgba(250, 250, 250, 0.5);
+    display: flex;
+    align-items: center; /* Center the items vertically */
+    justify-content: space-between; /* Ensures spacing between logo, title, and links */
+    padding: 10px;
+}
+nav img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+nav h1 {
+    position: relative;
+    margin: 0 10px;
+    font-family: cursive;
+    font-size: 40px;
+}
+nav h1 span {
+    color: orange;
+}
+nav .links {
+    display: flex;
+    margin-left: auto; /* Pushes the links to the right */
+}
+nav .links a {
+    padding: 20px;
+    text-decoration: none;
+    color: black;
+    font-weight: 500;
+    font-family: 'Work sans', sans-serif;
+}
+.all-foods{
+    display: flex;
+    margin-left: 130px;
+    margin-top: 200px;
+}
+.all-foods img{
+    width: 100px;
+    height:100px;
+    border-radius: 50%;
+    margin-left: 80px;
+}
+.all-foods img:hover{
+    transition: 0.4s ease-in-out;
+    transform: translateY(-10px);
+}
+.all-foods h4{
+    position: relative;
+    top:110px;
+    margin-left:-75px;
+}
+.list-of-menus{
+    display: flex;
+    margin:100px  0  0  200px ;
+
+}
+.list-of-menus img{
+    width: 300px;
+    height: 200px;
+}
+
+.main h2{
+    position: relative;
+    top: 100px;
+    font-weight: 600;
+    font-size: 35px;
+    color: black;
+    margin-left:200px;
+}
+.main h2 span{
+    color: orange;
+}
+.main p{
+    position: relative;
+    top:120px;
+    margin-left: 230px;
+}
+.main button{
+    padding: 13px 20px 13px 20px;
+    border: none;
+    background-color: orange;
+    border-radius: 10px;
+    font-family: 'Work sans';
+    font-weight: 500;
+    position: relative;
+    top:140px;
+    left: 250px;
+} 
+.list-of-foods {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 80px;
+    margin-left: 130px;
+}
+.food{
+    background-color: black;
+    width: 250px;
+    height:300px;
+    display: grid;
+    border-radius: 20px 0 20px 0 ;
+    z-index: 1;
+    cursor: pointer;
+}
+.food img{
+    width:120px;
+    height:120px;
+    border-radius: 50%;
+    margin-left: 70px;
+}
+.food .icons{
+    position:relative;
+    color: white;
+    font-size:20px;
+    margin-left: 70px;
+}
+.food .icons i{
+    margin: 5px;
+}
+.food h3{
+    position: relative;
+    color: white;
+    font-size: 16px;
+    margin: 20px 0  5px 40px;
+}
+.food p{
+    color: white;
+    position: relative;
+    top: -10px;
+    left: -250px;
+    font-size: 14px;
+    z-index: 2;
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    flex-wrap: wrap; 
+    width: 100%;
+    text-align: center;
+}
+.food:hover{
+    transition: 0.3s ease-in-out;
+    transform: translateY(-10px);
+}
+.feedback-container {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.small-container h2{
+    font-family: 'Work sans', sans-serif;
+    font-size: 30px;
+    text-align: center;
+    margin-top: 80px;
+}
+.small-container h4{
+    font-size: 14px;
+    margin-top: 20px;
+    font-family: 'Work sans', sans-serif;
+    color: grey;
+    text-align: center;
+    font-weight: 300;
+}
+.card {
+    margin: 40px 0;
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    width: 280px;
+    text-align: center;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out;
+}
+.card:hover {
+    cursor: pointer;
+    transform: translateY(-10px);
+}
+.card img {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+.card h3 {
+    font-size: 20px;
+    color: #ff5e00;
+}
+.card p {
+    font-size: 14px;
+    margin-top: 10px;
+    color: #444;
+}
+footer {
+    background: black;
+    color: white;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.footer-icons {
+    display: flex;
+    gap: 15px;
+}
+.footer-icons i {
+    font-size: 20px;
+    color: white;
+    transition: color 0.3s;
+}
+.footer-icons i:hover {
+    transform: translateY(-4px);
+    transition: 0.3s ease-in-out;
+    color: #ff5e00;
+    cursor: pointer;
+}
+.links2 {
+    display: flex;
+    gap: 20px;
+}
+.links2 a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    transition: color 0.3s;
+}
+.links2 a:hover {
+    color: #ff5e00;
+    cursor: pointer;
+}
+footer h5{
+    text-align: center;
+    font-weight: 500;
+    font-size: 15px;
+    cursor: pointer;
+}
+footer h6{
+    font-weight: 500;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+/* Responsive Styles */
+/* @media (max-width: 1100px) {
+    .main h2{
+        position: relative;
+        top: 100px;
+        font-weight: 600;
+        font-size: 30px;
+        color: black;
+        margin-left:140px;
+    }
+    .main h2 span{
+        color: orange;
+    }
+    .main p{
+        position: relative;
+        top:120px;
+        margin-left: 130px;
+    }
+    .main button{
+        padding: 13px 20px 13px 20px;
+        border: none;
+        background-color: orange;
+        border-radius: 10px;
+        font-family: 'Work sans';
+        font-weight: 500;
+        position: relative;
+        top:140px;
+        left: 150px;
+    } 
+    .all-foods {
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-left: 0;
+    }
+    .all-foods img {
+        margin:0 20px;
+    }
+    .list-of-menus {
+        margin: 50px auto;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .list-of-menus img {
+        width: 80%;
+        max-width: 250px;
+        height: auto;
+    }
+    .list-of-foods {
+        width: 100%;
+        grid-template-columns: repeat(3, 1fr);
+        margin-left: 50px;
+        justify-content: center;
+    }
+    .links2 {
+        display: flex;
+        gap: 20px;
+    }
+    .links2 a {
+        text-decoration: none;
+        color: white;
+        font-size: 16px;
+        transition: color 0.3s;
+    }
+    .links2 a:hover {
+        color: #ff5e00;
+        cursor: pointer;
+    }
+    .food p{
+        color: white;
+        position: relative;
+        top: -10px;
+        left: -130px;
+        font-size: 14px;
+        z-index: 2;
+        display: flex;
+        justify-content: center; 
+        align-items: center; 
+        flex-wrap: wrap; 
+        width: 100%;
+        text-align: center;
+    }
+}
+
+
+@media (max-width: 680px) {
+   
+    .links {
+        margin: 10px 0;
+        flex-wrap: wrap;
+    }
+    .list-of-menus {
+        margin: 50px 100px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .all-foods {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr); 
+        gap: 30px;
+        justify-content: center; 
+        margin-top: 180px; 
+        margin-left: 150px; 
+    }
+
+    .all-foods img {
+        width: 80px; 
+        height: 80px; 
+        border-radius: 50%;
+        margin-left: 0; 
+        margin-bottom: 30px;
+    }
+
+    .all-foods h4 {
+        position: relative;
+        top: 90px; 
+        margin-left: -270px; 
+        font-size: 14px; 
+        text-align: center; 
+    }
+    .main h2, .main p, .main button {
+        text-align: center;
+        margin-left: 0;
+    }
+   
+    .food p{
+        color: white;
+        position: relative;
+        top: -10px;
+        left: 0;
+        font-size: 14px;
+        z-index: 2;
+        display: flex;
+        justify-content: center; 
+        align-items: center; 
+        flex-wrap: wrap; 
+        width: 100%;
+        text-align: center;
+    }
+    .food{
+        background-color: black;
+        width: 250px;
+        height:300px;
+        display: grid;
+        border-radius: 20px 0 20px 0 ;
+        z-index: 1;
+        cursor: pointer;
+    }
+    .list-of-foods {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+        margin-top: 80px;
+        margin-left: 150px;
+    }
+   
+    .feedback-container {
+        width: 100%;
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin: 0 100px;
+    }
+    .small-container h2{
+        font-family: 'Work sans', sans-serif;
+        font-size: 30px;
+        text-align: center;
+        margin-top: 80px;
+    }
+    .small-container h4{
+        font-size: 14px;
+        margin-top: 20px;
+        font-family: 'Work sans', sans-serif;
+        color: grey;
+        text-align: center;
+        font-weight: 300;
+    }
+}
+
+@media (max-width: 412px) {
+    nav {
+        background-color: rgba(250, 250, 250, 0.5);
+        display: flex;
+        align-items: center; 
+        justify-content: space-between; 
+        padding: 10px;
+    }
+
+    nav img {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        margin-right: 10px; 
+    }
+
+    nav h1 {
+        position: relative;
+        font-family: cursive;
+        font-size: 30px;
+        top: 30px;
+        
+    }
+
+    nav h1 span {
+        color: orange;
+    }
+
+    nav .links {
+        display: flex;
+        gap: 10px; 
+    }
+
+    nav .links a {
+        padding: 10px;
+        text-decoration: none;
+        color: black;
+        font-size: 18px;
+        font-weight: 500;
+        font-family: 'Work sans', sans-serif;
+    }
+    
+    .all-foods {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr); 
+        gap: 30px; 
+        justify-content: center; 
+        margin-top: 50px; 
+        margin-left: 150px; 
+    }
+
+    .all-foods img {
+        width: 80px; 
+        height: 80px; 
+        border-radius: 50%;
+        margin-left: 0; 
+    }
+
+    .all-foods h4 {
+        position: relative;
+        top: 50px; 
+        margin-left: -180px; 
+        font-size: 14px; 
+        text-align: center; 
+    }
+    .list-of-menus{
+        width:100%;
+        display: flex;
+        margin:100px 0  0  150px;
+    }
+    .list-of-menus img{
+        width: 300px;
+        height: 200px;
+        margin: 0 auto;
+    }
+    .food p {
+        color: white;
+        position: relative; 
+        margin-left: -100px;
+        margin-top: 55px;
+    }
+    .food{
+        background-color: black;
+        width: 250px;
+        height:300px;
+        display: grid;
+        border-radius: 20px 0 20px 0 ;
+        z-index: 1;
+        cursor: pointer;
+    }
+    .list-of-foods {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 20px;
+        margin-top: 80px;
+    }
+    .feedback-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .card {
+        width: 90%;
+    }
+    footer {
+        flex-direction: column;
+        text-align: center;
+    }
+    .footer-icons {
+        justify-content: center;
+        margin: 10px 0;
+    }
+    .main h2{
+        position: relative;
+        top: -80px;
+        font-weight: 600;
+        font-size: 35px;
+        color: black;
+        left: 70px;
+    }
+    .main h2 span{
+        color: orange;
+    }
+  
+    .main p {
+        display: flex;
+        flex-direction: row; 
+        gap: 10px; 
+        position: relative;
+        top: -60px;
+        left: 120px; 
+        font-size: 20px;
+    }
+
+    .main button{
+        padding: 13px 20px 13px 20px;
+        border: none;
+        background-color: orange;
+        border-radius: 10px;
+        font-family: 'Work sans';
+        font-weight: 500;
+        position: relative;
+        top:-40px;
+        left: 150px;
+    } 
+} */
+
+
+
+</style>
+<body>
+    <nav>
+        <img src="food.logo.jpg"/>
+        <h1>Fast<span>Food</span></h1>
+        <div class="links">
+            <a href="#">Home</a >   
+            <a href="#">Menu</a >   
+            <a href="#">About</a >   
+        </div>
+    </nav>
+    <div class="main">
+        <h2>Welcome to FastFood!</h2>
+        <h2>Delicous Food is <span>waiting for you</span></h2>
+        <p>Your favorite food, delivered fast and fresh! Explore our delicious<br> menu and get started on with culinary adventure today!</p>
+        <div>
+            <button>Order now</button>
+            <button>Book a Table</button>
+        </div>
+        <div class="all-foods">
+            <img src="pizza.jpg" />
+            <h4>Pizza</h4>
+            <img src="burgers.jpg" />
+            <h4>Burgers</h4>
+            <img src="cucci.jpg" />
+            <h4>Sushi</h4>
+            <img src="Tacos.jpg" />
+            <h4>Tacos</h4>
+            <img src="Paella.jpg" />
+            <h4>Paella</h4>
+            <img src="meat.jpg" />
+            <h4>Meat</h4>
+        </div>
+        <div class="list-of-menus">
+            <img src="b212c13c6cffe392142db1b7a7a22340.jpg"/>
+            <img src="pizzamenu.jpg"/>
+            <img src="meatmenu.jpg"/>
+        </div>
+        <div class="list-of-foods">
+            <div class="food">
+                <h3 class="title"> Pizza (Italian Cuisine)</h3>
+                <img src="pizza.jpg"/>
+                <p class="descr">A delicious Italian crispy dish <br/>  crust,tomato sauce, and various<br/>  toppings.</p>
+                <div class="icons">
+                    <i class="fa-solid fa-cart-plus"></i>
+                    <i class="fa-solid fa-thumbs-up"></i>
+                    <i class="fa-solid fa-eye"></i>
+                </div>
+            </div>
+            <div class="food">
+                <h3 class="title">Sushi (Japanese Cuisine)</h3>
+                <img src="cucci.jpg"/>
+                <p class="descr">A traditional Japanese dish made <br/> vinegared rice, seafood, and <br/> vegetables.</p>
+                <div class="icons">
+                    <i class="fa-solid fa-cart-plus"></i>
+                    <i class="fa-solid fa-thumbs-up"></i>
+                    <i class="fa-solid fa-eye"></i>
+                </div>
+            </div>
+            <div class="food">
+                <h3 class="title">Tacos (Mexican Cuisine)</h3>
+                <img src="Tacos.jpg"/>
+                <p class="descr">A popular Mexican dish filled <br/> folded tortillas filled with meat,<br/> cheese,and vegetables.</p>
+                <div class="icons">
+                    <i class="fa-solid fa-cart-plus"></i>
+                    <i class="fa-solid fa-thumbs-up"></i>
+                    <i class="fa-solid fa-eye"></i>
+                </div>
+            </div>
+            <div class="food">
+                <h3 class="title">Burgers (Americ Cuisine)</h3>
+                <img src="burgers.jpg"/>
+                <p class="descr">A classic Americ food enjoy, <br/>featuring a grilled patty in bun<br/> with toppings.</p>
+                <div class="icons">
+                    <i class="fa-solid fa-cart-plus"></i>
+                    <i class="fa-solid fa-thumbs-up"></i>
+                    <i class="fa-solid fa-eye"></i>
+                </div>
+            </div>
+            <div class="food">
+                <h3 class="title">Paella (Spanish Cuisine)</h3>
+                <img src="Paella.jpg"/>
+                <p class="descr"> Spanish rice dish cooked with <br/> seafood,  meat,and vegetables, <br/>rich and aromatic flavor.</p>
+                <div class="icons">
+                    <i class="fa-solid fa-cart-plus"></i>
+                    <i class="fa-solid fa-thumbs-up"></i>
+                    <i class="fa-solid fa-eye"></i>
+                </div>
+            </div>
+            <div class="food">
+                <h3 class="title">Paella (Spanish Cuisine)</h3>
+                <img src="meat.jpg"/>
+                <p class="descr"> Spanish rice dish cooked with <br> seafood, meat, and vegetables, <br/>rich and aromatic flavor.</p>
+                <div class="icons">
+                        <i class="fa-solid fa-cart-plus"></i>
+                        <i class="fa-solid fa-thumbs-up"></i>
+                        <i class="fa-solid fa-eye"></i>
+                    </div>
+                </div>
+            </div>
+        </div> 
+    </div>
+    
+    <div class="small-container">
+        <h2>Our customers feedback</h2>
+        <h4>Your feedback matters! Let us know how we can improve your experience <br/> and serve you better. We value your opinion!</h4>
+    </div>
+    <div class="feedback-container">
+        
+        <div class="card">
+            <img src="customer.jpg" alt="Customer 1">
+            <h3>Emily Johnson</h3>
+            <p>"The best fast food experience! The burgers were fresh, and the delivery was super quick. Highly recommend!"</p>
+        </div>
+
+        <div class="card">
+            <img src="customer1.jpg" alt="Customer 2">
+            <h3>Michael Smith</h3>
+            <p>"Great service and amazing taste! The pizza was delicious, and the quality is top-notch. Will order again!"</p>
+        </div>
+    </div>
+    <footer>
+        <div class="footer-icons">
+            <i class="fa-brands fa-facebook"></i>
+            <i class="fa-brands fa-instagram"></i>
+            <i class="fa-brands fa-linkedin-in"></i>
+            <i class="fa-brands fa-twitter"></i>
+            <i class="fa-brands fa-skype"></i>
+        </div>
+        <h5>Email: utujesandrine456@gmail.com</h5>
+        <h6>Tel: 0785805869</h6>
+        <div class="links2">
+            <a href="#">Home</a >   
+            <a href="#">Menu</a >   
+            <a href="#">About</a >   
+        </div>
+    </footer>
+</body>
+</html>
+
+
+
